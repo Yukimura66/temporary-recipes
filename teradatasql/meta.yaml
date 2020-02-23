@@ -1,0 +1,45 @@
+{% set name = "teradatasql" %}
+{% set version = "16.20.0.59" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://files.pythonhosted.org/packages/c9/5d/90bbc2a5213516f2d393261bbe204654774eefe57b1d5be387a96b5bad1e/teradatasql-16.20.0.59-py3-none-any.whl
+  sha256: e26a6da17fa572118553f1f495241b7435a6c9bdea0a17bcf3d93f891189bd76
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install -vv --no-deps --ignore-installed https://files.pythonhosted.org/packages/c9/5d/90bbc2a5213516f2d393261bbe204654774eefe57b1d5be387a96b5bad1e/teradatasql-16.20.0.59-py3-none-any.whl"
+
+requirements:
+  host:
+    - pip
+    - python
+    - setuptools
+    - sqlalchemy
+    - pycryptodome
+  run:
+    - python
+    - setuptools
+    - sqlalchemy
+    - pycryptodome
+
+test:
+  imports:
+    - teradatasql
+
+about:
+  home: http://www.teradata.com
+  license: Proprietary
+  license_family: Other
+  license_file: LICENSE
+  summary: "Teradata SQL Driver for Python"
+  doc_url: https://github.com/Teradata/python-driver
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - Yukimura66

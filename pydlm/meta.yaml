@@ -1,0 +1,48 @@
+package:
+  name: "pydlm"
+  version: "0.1.1.11"
+
+source:
+  url: https://files.pythonhosted.org/packages/3f/a5/9741f8ea14f13d8f1f40946cf1c7a3cbdd6cea9ea631a3b24faab1a79203/pydlm-0.1.1.11.tar.gz
+  sha256: 35a322b389bdba77af00e77d205726f83548afc2f8bbe65a490ba97f434efba1
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+
+requirements:
+  host:
+    - matplotlib
+    - numpy
+    - pip
+    - python
+  run:
+    - matplotlib
+    - numpy
+    - python
+
+test:
+  imports:
+    - pydlm
+    - pydlm.base
+    - pydlm.func
+    - pydlm.modeler
+    - pydlm.plot
+    - pydlm.tests
+    - pydlm.tests.base
+    - pydlm.tests.func
+    - pydlm.tests.modeler
+    - pydlm.tuner
+
+about:
+  home: https://github.com/wwrechard/pydlm
+  license: BSD
+  license_family: BSD
+  license_file: LICENSE
+  summary: A python library for the Bayesian dynamic linear model for time series modeling
+  doc_url: https://pydlm.github.io
+  dev_url: https://github.com/wwrechard/pydlm
+
+extra:
+  recipe-maintainers:
+    - Yukimura66

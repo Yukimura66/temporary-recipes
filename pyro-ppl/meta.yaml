@@ -1,0 +1,77 @@
+package:
+  name: pyro-ppl 
+  version: 0.3.3
+
+source:
+  url: https://files.pythonhosted.org/packages/c0/e1/d67bf6252b9a0a1034bfd81c23fd28cdb8078670187f60084c1785bcae42/pyro-ppl-0.3.3.tar.gz
+  sha256: e980e2aa5a029e2f133d422a9154a21c9cca96c417c230ddde858e41aa43687b
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+
+requirements:
+  host:
+    - contextlib2
+    - graphviz >=0.8
+    - python-graphviz
+    - numpy >=1.7
+    - opt_einsum >=2.3.2
+    - pip
+    - python
+    - six >=1.10.0
+    - pytorch >=1.1.0
+    - tqdm >=4.31
+  run:
+    - contextlib2
+    - graphviz >=0.8
+    - python-graphviz
+    - numpy >=1.7
+    - opt_einsum >=2.3.2
+    - python
+    - six >=1.10.0
+    - pytorch >=1.1.0
+    - tqdm >=4.31
+
+test:
+  imports:
+    - pyro
+    - pyro.contrib
+    - pyro.contrib.autoguide
+    - pyro.contrib.autoname
+    - pyro.contrib.bnn
+    - pyro.contrib.conjugate
+    - pyro.contrib.examples
+    - pyro.contrib.glmm
+    - pyro.contrib.gp
+    - pyro.contrib.gp.kernels
+    - pyro.contrib.gp.likelihoods
+    - pyro.contrib.gp.models
+    - pyro.contrib.oed
+    - pyro.contrib.tracking
+    - pyro.distributions
+    - pyro.distributions.testing
+    - pyro.infer
+    - pyro.infer.mcmc
+    - pyro.nn
+    - pyro.ops
+    - pyro.ops.einsum
+    - pyro.optim
+    - pyro.params
+    - pyro.poutine
+  requires:
+    - flake8
+    - pytest >=4.1
+
+about:
+  home: http://pyro.ai
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE.md 
+  summary: A Python library for probabilistic modeling and inference
+  doc_url: http://docs.pyro.ai/en/stable/
+  dev_url: https://github.com/pyro-ppl/pyro
+
+extra:
+  recipe-maintainers:
+    - Yukimura66 

@@ -1,0 +1,47 @@
+{% set name = "teradatasqlalchemy" %}
+{% set version = "16.20.0.8" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://files.pythonhosted.org/packages/8d/86/4846e66235674d7dff079cc22ace65e547cd9a2134a736b524a985ba4e1d/teradatasqlalchemy-16.20.0.8-py3-none-any.whl
+  sha256: 7880f5252f5932c3b6d49eeb62c839459d46926415a3346cf863f50c02e92acb
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install -vv --no-deps --ignore-installed https://files.pythonhosted.org/packages/8d/86/4846e66235674d7dff079cc22ace65e547cd9a2134a736b524a985ba4e1d/teradatasqlalchemy-16.20.0.8-py3-none-any.whl"
+
+requirements:
+  host:
+    - pip
+    - python
+    - setuptools
+    - sqlalchemy
+    - pycryptodome
+    - teradatasql
+  run:
+    - python
+    - setuptools
+    - sqlalchemy
+    - pycryptodome
+    - teradatasql
+
+test:
+  imports:
+    - teradatasqlalchemy
+
+about:
+  home: http://www.teradata.com
+  license: Proprietary
+  license_family: Other
+  license_file: LICENSE
+  summary: "Teradata SQL Driver Dialect for SQLAlchemy"
+  doc_url: https://github.com/Teradata/python-driver
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - Yukimura66

@@ -1,0 +1,59 @@
+{% set name = "sklearn2vantage" %}
+{% set version = "0.1.7" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 983d5bc9da4e0be1fb2aafc285d3f51be6e9fbf1e95772a24bf92890aee1c871
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed"
+
+requirements:
+  host:
+    - numpy
+    - pandas
+    - paramiko
+    - pip
+    - python
+    - scikit-learn
+    - scp
+    - sqlalchemy
+    - sqlalchemy-teradata
+    - teradata
+    - teradatasql
+    - teradatasqlalchemy
+  run:
+    - numpy
+    - pandas
+    - paramiko
+    - python
+    - scikit-learn
+    - scp
+    - sqlalchemy
+    - sqlalchemy-teradata
+    - teradata
+    - teradatasql
+    - teradatasqlalchemy
+
+test:
+  imports:
+    - sklearn2vantage
+
+about:
+  home: "https://github.com/Yukimura66/sklearn2vantage"
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: "Module for converting sklearn model to Teradata Vantage model"
+  doc_url: 
+  dev_url: https://github.com/Yukimura66/sklearn2vantage
+
+extra:
+  recipe-maintainers:
+    - Yukimura66

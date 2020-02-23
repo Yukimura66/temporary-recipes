@@ -1,0 +1,45 @@
+{% set name = "sqlalchemy-teradata" %}
+{% set version = "0.9.0.dev0" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://files.pythonhosted.org/packages/43/92/5c054f915aebfc86904c906444c35ce28a3ba3381dd439dac0833b938944/sqlalchemy_teradata-0.9.0.dev0.tar.gz
+  sha256: 4675bbe31f3b1ea672ec83a2fff504b7b64742bcf5f5d7d08d5e7d0258c723bd
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed"
+
+requirements:
+  host:
+    - pip
+    - python
+    - setuptools
+    - sqlalchemy
+    - teradata
+  run:
+    - python
+    - setuptools
+    - sqlalchemy
+    - teradata
+
+test:
+  imports:
+    - sqlalchemy_teradata
+
+about:
+  home: https://github.com/Teradata/sqlalchemy-teradata
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: "Teradata dialect for SQLAlchemy"
+  doc_url: 
+  dev_url: https://github.com/Teradata/sqlalchemy-teradata
+
+extra:
+  recipe-maintainers:
+    - Yukimura66
